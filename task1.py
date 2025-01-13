@@ -1,21 +1,43 @@
 """
 Rectangular Prism Object
-Create a class that creates a rectangular prism.  You should be able to set all of the important measurements (l,w,h) when the object is instantiated in the constructor and you should have class methods that determine the surface area and volume.
+Create a class that creates a rectangular prism.  You should be able to set all of the important measurements (l,w,h) 
+when the object is instantiated in the constructor and you should have class methods that determine the 
+surface area and volume.
+
 You should have class methods that also allow you to change the dimensions of the object.
 Instantiate 3 separate rectangular prisms with the test data given, and check the assertions are correct.
 """
 
 class rectPrism:
 
-    def __init__(self):
-        # note you will need to specify more input parameters
-        pass
+    def __init__(self,l,w,h):
+        self.l = l
+        self.w = w
+        self.h = h
 
     def volume(self):
-        return
-    
+
+        if (self.l > 0) or (self.w > 0) or (self.h > 0):
+            V = self.l * self.w * self.h
+        
+        if (self.l <= 0) or (self.w <= 0) or (self.h <= 0):
+            V = None
+        
+
+        
+        print(V)
+        return V
+
     def surfaceArea(self):
-        return
+
+        if (self.l > 0) or (self.w > 0) or (self.h > 0):
+            SA = (2 * self.l * self.w) + (2 * self.l * self.h) + (2 * self.h * self.w)
+        
+        if (self.l <= 0) or (self.w <= 0) or (self.h <= 0):
+            SA = None
+
+        print(SA)
+        return SA
 
 # class instances and assertions below:
 
@@ -25,9 +47,11 @@ assert a.surfaceArea() == 160
 
 b = rectPrism(l=1,w=1,h=1)
 assert b.volume() == 1
-assert b.surfaceArea == 6
+assert b.surfaceArea() == 6
 
 c = rectPrism(l=2,w=0,h=10)
-# note the invalid width
+#note the invalid width
 assert c.volume() == None
 assert c.surfaceArea() == None
+
+#DONE
